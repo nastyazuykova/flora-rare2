@@ -19,3 +19,44 @@
             </nav>
         </div>
     </header>
+    <main class="main">
+        <section class="hero">
+            <div class="hero__container">
+                <h1 class="hero__title">Rare <br><span class="hero__title-accent">Botanicals</span></h1>
+                <p class="hero__description">Цифровая витрина акклиматизированных мутаций, вариегатных гибридов и ультра-редких экземпляров флоры.</p>
+            </div>
+        </section>
+
+        <section class="controls">
+            <div class="controls__container">
+                <form class="controls__form" id="filterForm" onsubmit="event.preventDefault();">
+                    <div class="controls__search-wrapper">
+                        <input class="controls__input" type="text" id="searchPlant" placeholder="Поиск по семейству / названию...">
+                    </div>
+                    <div class="controls__select-group">
+                        <div class="controls__select-wrapper">
+                            <select class="controls__select" id="filterRare">
+                                <option value="all">Все уровни редкости</option>
+                                <option value="grail">Holy Grail (Единичные)</option>
+                                <option value="variegated">Вариегатные мутации</option>
+                            </select>
+                        </div>
+                        <div class="controls__select-wrapper">
+                            <select class="controls__select" id="filterLight">
+                                <option value="all">Любая инсоляция</option>
+                                <option value="bright">Яркий рассеянный</option>
+                                <option value="shade">Глубокая тень</option>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <section class="gallery">
+            <div class="gallery__container">
+                <div class="gallery__grid" id="catalogGrid">
+                    </div>
+            </div>
+        </section>
+    </main>
