@@ -1,0 +1,11 @@
+
+:root {
+    --bg-dark: #0a0c0b;       
+    --bg-card: #121614;       
+    --accent-neon: #00ff66;   
+    --accent-glow: rgba(0, 255, 102, 0.4); 
+    --text-main: #f5f5f7;     
+    --text-muted: #9aab9f;    
+    --border-color: #1f2622;  
+    --font-accent: 'Courier New', Courier, monospace;
+}
