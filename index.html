@@ -19,6 +19,7 @@
             </nav>
         </div>
     </header>
+
     <main class="main">
         <section class="hero">
             <div class="hero__container">
@@ -60,3 +61,42 @@
             </div>
         </section>
     </main>
+    
+    <dialog class="drawer" id="cartModal">
+        <div class="drawer__overlay">
+            <div class="drawer__content">
+                <div class="drawer__header">
+                    <h2 class="drawer__title">Ваш выбор</h2>
+                    <button class="drawer__close" id="closeCartBtn" aria-label="Закрыть корзину">&mdash; Закрыть</button>
+                </div>
+                
+                <ul class="drawer__list" id="modalCartList">
+                    </ul>
+                
+                <div class="drawer__footer">
+                    <div class="drawer__total">
+                        <span class="drawer__total-label">Сумма заказа:</span>
+                        <span class="drawer__total-value"><span id="modalTotalSum">0</span> ₸</span>
+                    </div>
+                    
+                    <form class="checkout-form" id="orderForm" novalidate>
+                        <div class="checkout-form__field">
+                            <label class="checkout-form__label" for="userName">Имя коллекционера</label>
+                            <input class="checkout-form__input" type="text" id="userName" placeholder="Александр">
+                            <span class="checkout-form__error" id="nameError"></span>
+                        </div>
+                        <div class="checkout-form__field">
+                            <label class="checkout-form__label" for="userPhone">Контактный телефон</label>
+                            <input class="checkout-form__input" type="text" id="userPhone" placeholder="+7 (707) 123-45-67">
+                            <span class="checkout-form__error" id="phoneError"></span>
+                        </div>
+                        <button class="checkout-form__submit" type="submit">Оформить предзаказ</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </dialog>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
