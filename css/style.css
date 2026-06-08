@@ -116,3 +116,52 @@ body {
     font-size: 16px;
     line-height: 1.6;
 }
+
+
+.controls {
+    margin-bottom: 50px;
+}
+.controls__form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border: 1px solid var(--border-color);
+    padding: 30px;
+    background: var(--bg-card);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+.controls__input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid var(--border-color);
+    padding: 15px 0;
+    color: var(--text-main);
+    font-size: 20px;
+    outline: none;
+    transition: border 0.3s;
+}
+.controls__input:focus {
+    border-color: var(--accent-neon);
+}
+.controls__select-group {
+    display: flex;
+    gap: 20px;
+}
+.controls__select-wrapper {
+    flex: 1;
+}
+.controls__select {
+    width: 100%;
+    background: var(--bg-dark);
+    border: 1px solid var(--border-color);
+    padding: 15px;
+    color: var(--text-main);
+    font-size: 14px;
+    outline: none;
+    cursor: pointer;
+    transition: border 0.3s;
+}
+.controls__select:focus {
+    border-color: var(--accent-neon);
+}
