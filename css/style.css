@@ -48,3 +48,15 @@ body {
     align-items: center;
     height: 90px;
 }
+.header__logo {
+    font-size: 28px;
+    font-weight: 900;
+    letter-spacing: -1px;
+    color: var(--text-main);
+    text-decoration: none;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+.header__logo-dot {
+    color: var(--accent-neon);
+    text-shadow: 0 0 8px var(--accent-glow);
+}
