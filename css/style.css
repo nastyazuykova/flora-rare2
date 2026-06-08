@@ -79,3 +79,40 @@ body {
     box-shadow: 0 0 20px var(--accent-glow);
     font-weight: bold;
 }
+.header__cart-badge {
+    background: var(--text-main);
+    color: var(--bg-dark);
+    font-weight: bold;
+    padding: 2px 8px;
+    font-size: 12px;
+    transition: all 0.3s ease;
+}
+.header__cart-toggle:hover .header__cart-badge {
+    background: var(--bg-dark);
+    color: var(--accent-neon);
+}
+
+
+.hero {
+    padding-top: 180px;
+    padding-bottom: 50px;
+    background: radial-gradient(circle at top left, rgba(0, 255, 102, 0.05) 0%, transparent 40%);
+}
+.hero__title {
+    font-size: 84px;
+    font-weight: 800;
+    line-height: 0.9;
+    letter-spacing: -3px;
+    text-transform: uppercase;
+}
+.hero__title-accent {
+    color: var(--accent-neon);
+    text-shadow: 0 0 30px rgba(0, 255, 102, 0.3);
+}
+.hero__description {
+    margin-top: 25px;
+    max-width: 500px;
+    color: var(--text-muted);
+    font-size: 16px;
+    line-height: 1.6;
+}
