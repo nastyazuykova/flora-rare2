@@ -24,3 +24,20 @@ body {
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
 }
+
+.header__container, .hero__container, .controls__container, .gallery__container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+
+.header {
+    border-bottom: 1px solid var(--border-color);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(10, 12, 11, 0.85);
+    backdrop-filter: blur(20px);
