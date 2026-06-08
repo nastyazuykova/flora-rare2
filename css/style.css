@@ -60,3 +60,22 @@ body {
     color: var(--accent-neon);
     text-shadow: 0 0 8px var(--accent-glow);
 }
+.header__cart-toggle {
+    background: transparent;
+    border: 1px solid var(--accent-neon);
+    padding: 12px 24px;
+    color: var(--text-main);
+    font-family: var(--font-accent);
+    cursor: pointer;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    transition: all 0.3s ease;
+    box-shadow: inset 0 0 10px rgba(0, 255, 102, 0.1);
+}
+.header__cart-toggle:hover {
+    background: var(--accent-neon);
+    color: var(--bg-dark);
+    box-shadow: 0 0 20px var(--accent-glow);
+    font-weight: bold;
+}
