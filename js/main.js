@@ -72,3 +72,35 @@ function renderGrid(items) {
         });
     });
 }
+
+
+function bindFilterEvents() {
+    const runFilterEngine = () => {
+        const query = searchPlant.value.toLowerCase().trim();
+        const rarity = filterRare.value;
+        const illumination = filterLight.value;
+
+        const results = BOTANICAL_LOTS.filter(lot => {
+            const matchSearch = lot.name.toLowerCase().includes(query) || lot.code.toLowerCase().includes(query);
+            const matchRarity = rarity === "all" || lot.rare === rarity;
+            const matchIllumination = illumination === "all" || lot.light === illumination;
+            return matchSearch && matchRarity && matchIllumination;
+        });
+
+        renderGrid(results);
+    };
+
+    searchPlant.addEventListener("input", runFilterEngine);
+    filterRare.addEventListener("change", runFilterEngine);
+    filterLight.addEventListener("change", runFilterEngine);
+}
+
+
+function addLotToCart(id) {
+    const targetedLot = BOTANICAL_LOTS.find(lot => lot.id === id);
+    if (targetedLot) {
+        cartState.push(targetedLot);
+        localStorage.setItem("phytos_cart", JSON.stringify(cartState));
+        updateCartDOM();
+    }
+}
