@@ -378,3 +378,9 @@ body {
     opacity: 0.9;
     box-shadow: 0 0 25px var(--accent-neon);
 }
+
+@media (max-width: 768px) {
+    .hero__title { font-size: 54px; }
+    .controls__select-group { flex-direction: column; }
+    .header__container { height: 70px; }
+}
