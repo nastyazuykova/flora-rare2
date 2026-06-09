@@ -165,3 +165,11 @@ body {
 .controls__select:focus {
     border-color: var(--accent-neon);
 }
+
+
+.gallery__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px; /* Свободный красивый шаг вместо глухих рамок */
+    margin-bottom: 100px;
+}
