@@ -324,3 +324,57 @@ body {
     color: var(--accent-neon);
     text-shadow: 0 0 10px var(--accent-glow);
 }
+
+
+.checkout-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.checkout-form__field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.checkout-form__label {
+    font-size: 12px;
+    font-family: var(--font-accent);
+    color: var(--text-muted);
+    text-transform: uppercase;
+}
+.checkout-form__input {
+    background: var(--bg-dark);
+    border: 1px solid var(--border-color);
+    padding: 15px;
+    color: var(--text-main);
+    font-size: 15px;
+    outline: none;
+    transition: border 0.3s;
+}
+.checkout-form__input:focus {
+    border-color: var(--accent-neon);
+}
+.checkout-form__input--error {
+    border-color: #ff3333 !important;
+}
+.checkout-form__error {
+    color: #ff3333;
+    font-size: 12px;
+    font-family: var(--font-accent);
+}
+.checkout-form__submit {
+    background: var(--accent-neon);
+    color: var(--bg-dark);
+    border: none;
+    padding: 18px;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 0 15px var(--accent-glow);
+}
+.checkout-form__submit:hover {
+    opacity: 0.9;
+    box-shadow: 0 0 25px var(--accent-neon);
+}
