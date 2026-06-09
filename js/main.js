@@ -104,3 +104,32 @@ function addLotToCart(id) {
         updateCartDOM();
     }
 }
+
+
+function updateCartDOM() {
+    cartCount.textContent = cartState.length;
+    modalCartList.innerHTML = "";
+    
+    let totalAccumulator = 0;
+    cartState.forEach(item => {
+        totalAccumulator += item.price;
+        const li = document.createElement("li");
+        li.className = "drawer__item";
+        li.innerHTML = `
+            <span>${item.name}</span>
+            <span style="font-family: var(--font-accent); font-weight: bold; color: var(--accent-neon);">${item.price.toLocaleString()} ₸</span>
+        `;
+        modalCartList.appendChild(li);
+    });
+    
+    modalTotalSum.textContent = totalAccumulator.toLocaleString();
+}
+
+
+function bindModalEvents() {
+    cartBtn.addEventListener("click", () => cartModal.showModal());
+    closeCartBtn.addEventListener("click", () => cartModal.close());
+    cartModal.addEventListener("click", (e) => {
+        if (e.target === cartModal) cartModal.close();
+    });
+}
