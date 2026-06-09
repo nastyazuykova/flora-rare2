@@ -11,3 +11,29 @@ const BOTANICAL_LOTS = [
     { id: 7, name: "Caladium Thai Beauty", price: 35000, rare: "variegated", light: "bright", image: "img/caladium.webp" },
     { id: 8, name: "Philodendron Caramel Marble", price: 450000, rare: "grail", light: "bright", image: "img/caramel.webp" }
 ];
+
+
+let cartState = JSON.parse(localStorage.getItem("phytos_cart")) || [];
+
+
+const catalogGrid = document.getElementById("catalogGrid");
+const cartCount = document.getElementById("cartCount");
+const cartModal = document.getElementById("cartModal");
+const cartBtn = document.getElementById("cartBtn");
+const closeCartBtn = document.getElementById("closeCartBtn");
+const modalCartList = document.getElementById("modalCartList");
+const modalTotalSum = document.getElementById("modalTotalSum");
+
+
+const searchPlant = document.getElementById("searchPlant");
+const filterRare = document.getElementById("filterRare");
+const filterLight = document.getElementById("filterLight");
+const orderForm = document.getElementById("orderForm");
+
+document.addEventListener("DOMContentLoaded", () => {
+    renderGrid(BOTANICAL_LOTS);
+    updateCartDOM();
+    bindFilterEvents();
+    bindModalEvents();
+    bindFormValidation();
+});
