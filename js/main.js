@@ -37,3 +37,38 @@ document.addEventListener("DOMContentLoaded", () => {
     bindModalEvents();
     bindFormValidation();
 });
+
+
+function renderGrid(items) {
+    catalogGrid.innerHTML = "";
+    
+    if (items.length === 0) {
+        catalogGrid.innerHTML = `<div style="grid-column: 1/-1; padding: 80px 0; text-align: center; font-family: var(--font-accent); color: var(--text-muted);">[ РЕЗУЛЬТАТОВ НЕ НАЙДЕНО ]</div>`;
+        return;
+    }
+
+    items.forEach(lot => {
+        const itemLayout = document.createElement("article");
+        itemLayout.className = "card";
+        itemLayout.innerHTML = `
+            <div class="card__visual">
+                <img src="${lot.image}" alt="${lot.name}" class="card__img" loading="lazy">
+                <span class="card__tag">${lot.rare === 'grail' ? 'HOLY GRAIL' : 'MUTATION'}</span>
+            </div>
+            <h3 class="card__title">${lot.name}</h3>
+            <div class="card__footer">
+                <span class="card__price">${lot.price.toLocaleString()} ₸</span>
+                <button class="card__btn" data-id="${lot.id}">Приобрести</button>
+            </div>
+        `;
+        catalogGrid.appendChild(itemLayout);
+    });
+
+    
+    catalogGrid.querySelectorAll(".card__btn").forEach(btn => {
+        btn.addEventListener("click", (e) => {
+            const lotId = parseInt(e.currentTarget.dataset.id);
+            addLotToCart(lotId);
+        });
+    });
+}
