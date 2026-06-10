@@ -133,3 +133,66 @@ function bindModalEvents() {
         if (e.target === cartModal) cartModal.close();
     });
 }
+
+
+function bindFormValidation() {
+    orderForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        
+        const nameField = document.getElementById("userName");
+        const phoneField = document.getElementById("userPhone");
+        const nameError = document.getElementById("nameError");
+        const phoneError = document.getElementById("phoneError");
+        
+        let stateValid = true;
+
+        nameField.classList.remove("checkout-form__input--error");
+        phoneField.classList.remove("checkout-form__input--error");
+        nameError.textContent = "";
+        phoneError.textContent = "";
+
+        
+        const namePattern = /^[A-Za-zА-Яа-яЁё\s]{2,}$/;
+        if (!namePattern.test(nameField.value.trim())) {
+            nameField.classList.add("checkout-form__input--error");
+            nameError.textContent = "[ Ошибка: Имя должно состоять из букв ]";
+            stateValid = false;
+        }
+
+        
+        const phonePattern = /^(?:\+7|8)?[\s\-]?\(?7\d{2}\)?[\s\-]?\d{3}[\s\-]?\d{2}[\s\-]?\d{2}$/;
+        if (!phonePattern.test(phoneField.value.trim())) {
+            phoneField.classList.add("checkout-form__input--error");
+            phoneError.textContent = "[ Ошибка: Формат телефона +7 (7xx) xxx-xx-xx ]";
+            stateValid = false;
+        }
+
+        if (stateValid) {
+            if (cartState.length === 0) {
+                nameError.textContent = "[ Ошибка: Вы не выбрали ни одного растения ]";
+                return;
+            }
+            
+            
+            const submitBtn = orderForm.querySelector(".checkout-form__submit");
+            submitBtn.textContent = "Заявка принята";
+            submitBtn.style.background = "#ffffff";
+            submitBtn.style.color = "#000000";
+            submitBtn.style.boxShadow = "0 0 30px #ffffff";
+            submitBtn.disabled = true;
+
+            setTimeout(() => {
+                cartState = [];
+                localStorage.removeItem("phytos_cart");
+                updateCartDOM();
+                orderForm.reset();
+                submitBtn.textContent = "Оформить предзаказ";
+                submitBtn.style.background = "var(--accent-neon)";
+                submitBtn.style.color = "var(--bg-dark)";
+                submitBtn.style.boxShadow = "0 0 15px var(--accent-glow)";
+                submitBtn.disabled = false;
+                cartModal.close();
+            }, 2500);
+        }
+    });
+}
